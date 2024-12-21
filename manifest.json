@@ -1,15 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "FB Image Saver",
+  "name": "FB Image to PDF",
   "version": "1.0",
-  "description": "Automatically saves Facebook images and navigates through them",
+  "description": "Collects Facebook images and converts them to PDF",
   "permissions": [
     "activeTab",
     "downloads",
-    "storage"
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.fbcdn.net/*"
   ],
   "action": {
-    "default_title": "FB Image Saver"
+    "default_title": "FB Image to PDF"
   },
   "background": {
     "service_worker": "background.js"
@@ -17,7 +21,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.facebook.com/*"],
-      "js": ["content.js"]
+      "js": ["html2pdf.bundle.min.js", "content.js"]
     }
   ]
 } 
