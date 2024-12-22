@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "FB Image to PDF",
   "version": "1.0",
-  "description": "Collects Facebook images and converts them to PDF",
+  "description": "Downloads Facebook images and converts them to PDF",
   "permissions": [
     "activeTab",
     "downloads",
@@ -10,18 +10,13 @@
     "scripting"
   ],
   "host_permissions": [
-    "*://*.fbcdn.net/*"
+    "*://*.fbcdn.net/*",
+    "*://*.facebook.com/*"
   ],
   "action": {
     "default_title": "FB Image to PDF"
   },
   "background": {
     "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["*://*.facebook.com/*"],
-      "js": ["html2pdf.bundle.min.js", "content.js"]
-    }
-  ]
+  }
 } 
